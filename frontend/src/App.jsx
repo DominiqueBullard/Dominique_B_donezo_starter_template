@@ -27,7 +27,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/main-layout" element={<MainLayout />} />
-          <Route path="/todo" element ={<ProtectedRoute><Todos /></ProtectedRoute>} />
+          <Route path="/todos" element ={<ProtectedRoute><Todos /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

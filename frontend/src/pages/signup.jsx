@@ -37,9 +37,7 @@ export default function Signup(){
       navigate("/todos");      
     }
   }
-}
 
-{
   return (
    <div className="bg-gray-100 flex items-center justify-center min-h-screen">
       <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
@@ -55,7 +53,7 @@ export default function Signup(){
           </button>
         </div>
       </div>
-    });
+    }
 
   <form className="space-y-4" onSubmit={handleSubmit(signupUser)}>
     <div>

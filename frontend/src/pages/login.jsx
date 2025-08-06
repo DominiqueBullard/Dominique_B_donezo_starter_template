@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import supabase from "../client";
 
+
+export default function Login() {
 const [alert, showAlert] = useState({message: "",show: false});
 const { register, handleSubmit } = useForm({
   defaultValues: {
@@ -12,7 +14,7 @@ const { register, handleSubmit } = useForm({
 });
 const navigate = useNavigate();
 
-const loginUser = async (values) => {
+const loginUser = async (email, password) => {
 	 const { error } = await supabase.auth.signInWithPassword({ email, password });
 
 	if (error) {
@@ -21,18 +23,14 @@ const loginUser = async (values) => {
 	    message: error.message 
 	  });
 	} else {
-	  navigate("/todos.jsx");
+	  navigate("/todos");
 	}
 };
-
-export default function Login() {
-
-
-  return (
+ return (
     <div className="bg-gray-100 flex items-center justify-center min-h-screen">
       <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-        return (
+      
     <>
       {
         alert.show &&
@@ -46,9 +44,7 @@ export default function Login() {
           </div>
       }
     </>
- )
-        {function LoginForm() {
-    return (
+ 
       <form className="space-y-4" onSubmit={handleSubmit(loginUser)}>
        <div>
   <label 
@@ -78,8 +74,8 @@ export default function Login() {
 </div>
         <button type="submit" className="btn btn-primary w-full">Login</button>
       </form>
-    )
-}}
+    
+
         <p className="mt-4 text-center text-sm">Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign up</Link></p>
       </div>
     </div>
